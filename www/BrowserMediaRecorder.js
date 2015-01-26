@@ -17,7 +17,6 @@ var MediaRecorder = function(successCallback, errorCallback) {
     argscheck.checkArgs('FF', 'MediaRecorder', arguments);
     this.id = utils.createUUID();
     mediaObjects[this.id] = this;
-    console.log('-----', 'MediaRecorder', this.id);
     this.successCallback = successCallback;
     this.errorCallback = errorCallback;
     exec(null, this.errorCallback, "BrowserMediaRecorder", "create", [this.id, this.src]);
@@ -40,6 +39,13 @@ MediaRecorder.prototype.startRecord = function() {
  */
 MediaRecorder.prototype.stopRecord = function() {
     exec(null, this.errorCallback, "BrowserMediaRecorder", "stopRecordingAudio", [this.id]);
+};
+
+/**
+ * Play recording.
+ */
+MediaRecorder.prototype.playRecord = function() {
+    exec(null, this.errorCallback, "BrowserMediaRecorder", "playRecordingAudio", [this.id]);
 };
 
 /**

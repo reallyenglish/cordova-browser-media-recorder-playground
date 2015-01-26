@@ -25,22 +25,22 @@ var Recorder = {
     stopRecordingAudio:function(win, lose, args) {
         var id = args[0];
         var thisM = BrowserMediaRecorder.get(id);
-        thisM.stop();
+        thisM.recorder.stop();
     },
 
     // play back recording audio
     playRecordingAudio:function(win, lose, args) {
         var id = args[0];
-        var thisM = Media.get(id);
-        thisM.play();
+        var thisM = BrowserMediaRecorder.get(id);
+        thisM.recorder.play();
     },
 
     // Release the media object
     release:function(win, lose, args) {
         var id = args[0];
-        var thisM = Media.get(id);
+        var thisM = BrowserMediaRecorder.get(id);
         try {
-            delete thisM.node;
+            delete thisM.recorder;
         } catch (err) {
             lose("Failed to release: "+err);
         }
