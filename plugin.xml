@@ -7,14 +7,14 @@
   <!-- Plugin source code: Core -->
 
   <js-module name="BrowserMediaRecorder" src="www/BrowserMediaRecorder.js">
-    <clobbers target="window.Media" />
+    <clobbers target="window.MediaRecorder" />
   </js-module>
 
   <!-- browser -->
   <platform name="browser">
     <config-file target="config.xml" parent="/*">
-      <feature name="Media">
-        <param name="browser-package" value="Media" />
+      <feature name="MediaRecorder">
+        <param name="browser-package" value="MediaRecorder" />
       </feature>
     </config-file>
 
