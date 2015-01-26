@@ -17,9 +17,10 @@ var MediaRecorder = function(successCallback, errorCallback) {
     argscheck.checkArgs('FF', 'MediaRecorder', arguments);
     this.id = utils.createUUID();
     mediaObjects[this.id] = this;
+    console.log('-----', 'MediaRecorder', this.id);
     this.successCallback = successCallback;
     this.errorCallback = errorCallback;
-    exec(null, this.errorCallback, "MediaRecorder", "create", [this.id, this.src]);
+    exec(null, this.errorCallback, "BrowserMediaRecorder", "create", [this.id, this.src]);
 };
 
 // "static" function to return existing objs.
@@ -31,21 +32,21 @@ MediaRecorder.get = function(id) {
  * Start recording.
  */
 MediaRecorder.prototype.startRecord = function() {
-    exec(null, this.errorCallback, "MediaRecorder", "startRecordingAudio", [this.id, this.src]);
+    exec(null, this.errorCallback, "BrowserMediaRecorder", "startRecordingAudio", [this.id]);
 };
 
 /**
  * Stop recording.
  */
 MediaRecorder.prototype.stopRecord = function() {
-    exec(null, this.errorCallback, "MediaRecorder", "stopRecordingAudio", [this.id]);
+    exec(null, this.errorCallback, "BrowserMediaRecorder", "stopRecordingAudio", [this.id]);
 };
 
 /**
  * Release the resources.
  */
 MediaRecorder.prototype.release = function() {
-    exec(null, this.errorCallback, "MediaRecorder", "release", [this.id]);
+    exec(null, this.errorCallback, "BrowserMediaRecorder", "release", [this.id]);
 };
 
 module.exports = MediaRecorder;
