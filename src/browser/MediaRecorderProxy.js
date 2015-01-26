@@ -1,7 +1,8 @@
 /*global Windows:true */
 
 var cordova = require('cordova'),
-    MediaRecorder = require('com.reallyenglish.cordova.plugin.browser-media-recorder.BrowserMediaRecorder');
+    BrowserMediaRecorder = require('com.reallyenglish.cordova.plugin.browser-media-recorder.BrowserMediaRecorder');
+    MediaRecorder = require('com.reallyenglish.cordova.plugin.browser-media-recorder.MediaRecorder');
 
 var Recorder = module.exports = {
 
@@ -34,4 +35,4 @@ var Recorder = module.exports = {
 };
 
 module.exports = Recorder;
-require("cordova/exec/proxy").add("MediaRecorder",module.exports);
+require("cordova/exec/proxy").add("BrowserMediaRecorder",module.exports);
