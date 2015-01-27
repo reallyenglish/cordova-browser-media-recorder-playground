@@ -2,22 +2,21 @@
 
 var cordova = require('cordova'),
     BrowserMediaRecorder = require('com.reallyenglish.cordova.plugin.browser-media-recorder.BrowserMediaRecorder');
-    MediaRecorder = require('com.reallyenglish.cordova.plugin.browser-media-recorder.MediaRecorder');
+    MRecorder = require('com.reallyenglish.cordova.plugin.browser-media-recorder.MediaRecorder');
 
 var Recorder = {
 
     // Initiates the audio file
     create:function(win, lose, args) {
         var id = args[0];
-        var src = args[1];
+        var thisM = BrowserMediaRecorder.get(id);
+        thisM.recorder = MRecorder.getInstance({swfSrc: 'scripts/recorder.swf'});
     },
 
     // Start recording audio
     startRecordingAudio:function(win, lose, args) {
         var id = args[0];
-        var src = args[1];
         var thisM = BrowserMediaRecorder.get(id);
-        thisM.recorder = MediaRecorder.getInstance({swfSrc: 'scripts/recorder.swf'});
         thisM.recorder.record();
     },
 
