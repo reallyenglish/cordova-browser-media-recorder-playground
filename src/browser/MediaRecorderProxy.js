@@ -17,7 +17,7 @@ var Recorder = {
         var id = args[0];
         var src = args[1];
         var thisM = BrowserMediaRecorder.get(id);
-        thisM.recorder = MediaRecorder.getInstance();
+        thisM.recorder = MediaRecorder.getInstance({swfSrc: 'scripts/recorder.swf'});
         thisM.recorder.record();
     },
 
