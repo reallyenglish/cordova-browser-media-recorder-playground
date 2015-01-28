@@ -29,7 +29,7 @@ var Recorder = {
     },
 
     // play back recording audio
-    playRecordingAudio:function(win, lose, args) {
+    startPlayingAudio:function(win, lose, args) {
         var id = args[0];
         var thisM = BrowserMediaRecorder.get(id);
         thisM.recorder.play();
@@ -48,4 +48,4 @@ var Recorder = {
 };
 
 module.exports = Recorder;
-require("cordova/exec/proxy").add("BrowserMediaRecorder",module.exports);
+require("cordova/exec/proxy").add("Media",module.exports);
