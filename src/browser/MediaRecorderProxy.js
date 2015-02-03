@@ -9,6 +9,7 @@ var Recorder = {
 
     // Initiates the audio file
     create:function(win, lose, args) {
+        var id = args[0];
         this.mRecorder = MRecorder.getInstance({swfSrc: 'scripts/recorder.swf'});
         this.mRecorder.onended = function() {
           BrowserMediaRecorder.onStatus(id, BrowserMediaRecorder.MEDIA_STATE, BrowserMediaRecorder.MEDIA_STOPPED);
