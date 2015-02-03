@@ -10,6 +10,9 @@ var Recorder = {
     // Initiates the audio file
     create:function(win, lose, args) {
         this.mRecorder = MRecorder.getInstance({swfSrc: 'scripts/recorder.swf'});
+        this.mRecorder.onended = function() {
+          BrowserMediaRecorder.onStatus(id, BrowserMediaRecorder.MEDIA_STATE, BrowserMediaRecorder.MEDIA_STOPPED);
+        }
     },
 
     // Start recording audio
@@ -19,6 +22,9 @@ var Recorder = {
 
     // Stop recording audio
     stopRecordingAudio:function(win, lose, args) {
+        //var id = args[0];
+        //var thisM = BrowserMediaRecorder.get(id);
+        //thisM.src = window.URL.createObjectURL(this.mRecorder.getData());
         this.mRecorder.stop();
     },
 
