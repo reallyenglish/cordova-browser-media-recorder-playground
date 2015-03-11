@@ -23,10 +23,13 @@ var Recorder = {
 
     // Stop recording audio
     stopRecordingAudio:function(win, lose, args) {
-        //var id = args[0];
-        //var thisM = BrowserMediaRecorder.get(id);
-        //thisM.src = window.URL.createObjectURL(this.mRecorder.getData());
+        var id = args[0];
+        var thisM = BrowserMediaRecorder.get(id);
+        var dataReady = function(data) {
+          thisM.src = window.URL.createObjectURL(data);
+        };
         this.mRecorder.stop();
+        this.mRecorder.getData(dataReady);
     },
 
     // play back recording audio
