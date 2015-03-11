@@ -35,15 +35,6 @@ var Recorder = {
     // play back recording audio
     startPlayingAudio:function(win, lose, args) {
         this.mRecorder.play();
-    },
-
-    // Release the media object
-    release:function(win, lose, args) {
-        try {
-            delete this.mRecorder;
-        } catch (err) {
-            lose("Failed to release: "+err);
-        }
     }
 };
 
