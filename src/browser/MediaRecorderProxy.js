@@ -27,6 +27,7 @@ var Recorder = {
         var thisM = BrowserMediaRecorder.get(id);
         var dataReady = function(data) {
           thisM.src = window.URL.createObjectURL(data);
+          BrowserMediaRecorder.onStatus(id, BrowserMediaRecorder.MEDIA_STATE, BrowserMediaRecorder.MEDIA_STOPPED);
         };
         this.mRecorder.stop();
         this.mRecorder.getData(dataReady);
